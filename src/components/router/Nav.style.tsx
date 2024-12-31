@@ -22,6 +22,7 @@ const StyledNav = styled.nav`
     font-weight: bold;
     transition: color 0.3s;
     text-transform: uppercase;
+    white-space: nowrap;
 
     &:hover {
       color: var(--color-light-orange);
