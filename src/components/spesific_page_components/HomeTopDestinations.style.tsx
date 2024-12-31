@@ -34,8 +34,6 @@ export const StyledCard = styled.div<{ backgroundImage: string }>`
   display: flex;
   flex-direction: column;
   animation: ${fadeIn} 0.5s ease-out;
-
-  /* Hover effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {

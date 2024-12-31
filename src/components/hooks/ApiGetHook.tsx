@@ -72,7 +72,7 @@ function ApiGetHook(venues: string) {
   
       getData();
     }, [venues]); // Re-fetch when the URL changes
-    console.log( "The items" ,items)
+    
   
     return { items, isError };
   }
