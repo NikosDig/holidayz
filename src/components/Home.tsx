@@ -1,5 +1,15 @@
+import HomeHero from "./spesific_page_components/HomeHero";
+import HomeTopDestinations from "./spesific_page_components/HomeTopDestinations";
+
+
+
 function Home() {
-    return <div>Home</div>
+    return ( 
+      <>
+      <HomeHero />
+      <HomeTopDestinations />
+      </>
+    )
   }
 
   export default Home;

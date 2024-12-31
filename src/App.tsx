@@ -7,6 +7,7 @@ import Contact from "./components/contact"
 import Profile from "./components/profile"
 import Home from "./components/Home"
 import LogIn from "./components/login"
+import ProductId from "./components/ProductId"
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <Route path="profile" element={<Profile />} />
       <Route path="login" element={<LogIn />} />
       <Route path="*" element={<RouteNotFound />} />
+      <Route path="/product/:id" element={<ProductId/>} />
       </Route>
       </Routes>
     </div>
