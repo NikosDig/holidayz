@@ -1,6 +1,6 @@
-import HomeHero from "./spesific_page_components/HomeHero";
-import HomeTopDestinations from "./spesific_page_components/HomeTopDestinations";
-
+import HomeHero from "./spesific_page_components/home/HomeHero";
+import HomeTopDestinations from "./spesific_page_components/home/HomeTopDestinations";
+import WorkWithUs from "./spesific_page_components/home/WorkWithUS";
 
 
 function Home() {
@@ -8,6 +8,7 @@ function Home() {
       <>
       <HomeHero />
       <HomeTopDestinations />
+      <WorkWithUs />
       </>
     )
   }

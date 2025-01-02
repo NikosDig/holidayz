@@ -17,7 +17,7 @@ export const CardsContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 4rem;
-  margin: 5rem 2rem 2rem 2rem;
+  margin: 5rem 2rem;
 `;
 
 export const StyledCard = styled.div<{ backgroundImage: string }>`
@@ -76,6 +76,6 @@ export const Heading = styled.h2`
   text-decoration: underline;
   text-transform: uppercase;
   color: var(--color-light-orange);
-  margin-top: 2rem;
+  margin-top: 5rem;
 `;
 

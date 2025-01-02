@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import holidayzHomeHero from "../images/holidayz-home-hero.jpg"
+import holidayzHomeHero from "../../images/holidayz-home-hero.jpg"
 
 const StyledHomeHero = styled.div`
   background-image: url(${holidayzHomeHero});
