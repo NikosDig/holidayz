@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     font-family: "Montserrat", Arial, sans-serif;
+    background-color: var(--color-white);
   }
 
   a {
