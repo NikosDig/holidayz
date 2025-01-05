@@ -1,12 +1,16 @@
-import Nav from "./Nav";
+import { Link } from "react-router-dom";
+import StyledFooter from "./Footer.style";
 
 function Footer() {
     return (
-        <footer>
-            <div>
-                <Nav />
+        <StyledFooter>
+            <div className="container">
+                <Link to={"/"}>HOME</Link>
+                <Link to={"/contact"}>Contact</Link>
+                <Link to={"/profile"}>Profile</Link>
+                <Link to={"/venues"}>Venues</Link>
             </div>
-        </footer>
+        </StyledFooter>
     )
 }
 
