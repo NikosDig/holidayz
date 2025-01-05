@@ -1,5 +1,13 @@
+import LogInMain from "./spesific_page_components/loging/LogInMain";
+
+
 function LogIn() {
-    return <div>Log in page</div>
+    return (
+      <>
+      <LogInMain />
+      </>
+
+    )
   }
 
   export default LogIn;
