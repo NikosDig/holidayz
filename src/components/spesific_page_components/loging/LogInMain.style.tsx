@@ -23,7 +23,7 @@ const StyledLogIn = styled.main`
         flex-direction: column;
         align-items: center;
         height: 50%;
-        width: 80%;
+        width: 70%;
         margin: 2rem auto;
         padding: 2rem;
         background-color:var(--color-blue);
@@ -60,6 +60,19 @@ const StyledLogIn = styled.main`
 
     button {
         margin: 1.5rem;
+    }
+
+    .signUpHere{
+        text-align: center;
+        color: var(--color-white);
+        padding: 1rem;
+    }
+
+    a {
+        text-decoration: underline;
+        color: var(--color-light-orange);
+        font-weight: bold;
+        background-color: rgba(18, 19, 46, 0.4);
     }
 `;
 

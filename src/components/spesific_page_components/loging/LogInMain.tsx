@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import StyledLogIn from "./LogInMain.style";
 
 function LogInMain() {
@@ -9,7 +9,7 @@ function LogInMain() {
                 <div className="formGroup">
                     <label htmlFor="email">email</label>
                     <input 
-                        type="text" 
+                        type="email" 
                         id="email" 
                         name="email" 
                         placeholder="Enter your email" 
@@ -28,6 +28,7 @@ function LogInMain() {
                 </div>
                 <button className="btn" type="submit">Log In</button>
             </form>
+            <p className="signUpHere">Dont have an account yet? Sign up <Link to="/signup">here</Link> </p>
         </StyledLogIn>
     );
 }

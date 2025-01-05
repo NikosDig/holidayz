@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
         text-transform: uppercase;
         cursor: pointer;
         transition: background-color 0.3s, color 0.5s;
+        white-space: nowrap;
       &:hover {
                 color: var(--color-blue);
               }
