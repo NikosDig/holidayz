@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
         transition: background-color 0.3s, color 0.5s;
         white-space: nowrap;
+        margin: 0 0 0.8rem 0;
       &:hover {
                 color: var(--color-blue);
               }

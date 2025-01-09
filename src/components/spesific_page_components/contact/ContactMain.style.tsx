@@ -44,7 +44,7 @@ padding: 0.2rem;
         border-radius: 8px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         width: 200px;
-        height: 150px;
+        height: 165px;
     
 }
 

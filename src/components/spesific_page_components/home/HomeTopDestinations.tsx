@@ -16,6 +16,7 @@ const Loader = () => (
         <p>Loading...</p>
     </LoaderContainer>
 );
+
 const truncateText = (text: string, length: number) => {
     if (text.length > length) {
         return text.substring(0, length) + '...';
@@ -50,7 +51,7 @@ function HomeTopDestinations() {
                     items.slice(0, 4).map((item, index) => (
                         <StyledCard 
                             key={index} 
-                            backgroundImage={item.media[0].url}
+                            $backgroundImage={item.media[0].url}
                         >
                             <CardContent>
                                 <CardTitle>{item.name}</CardTitle>
