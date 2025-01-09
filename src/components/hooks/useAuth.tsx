@@ -5,8 +5,8 @@ const useAuth = () => {
 
   useEffect(() => {
     const checkLoginStatus = () => {
-      // Replace this with your preferred method of checking login status
-      const token = localStorage.getItem('authToken'); // assuming 'authToken' stores login status
+      
+      const token = localStorage.getItem('authToken'); 
       if (token) {
         setIsLoggedIn(true);
       } else {

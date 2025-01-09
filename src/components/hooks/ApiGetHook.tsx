@@ -71,7 +71,7 @@ function ApiGetHook(venues: string) {
       }
   
       getData();
-    }, [venues]); // Re-fetch when the URL changes
+    }, [venues]); 
     
   
     return { items, isError };
