@@ -22,9 +22,9 @@ function App() {
       <Route path="contact" element={<Contact />} />
       <Route path="profile" element={<Profile />} />
       <Route path="login" element={<LogIn />} />
-      <Route path="*" element={<RouteNotFound />} />
       <Route path="/product/:id" element={<ProductId/>} />
       <Route path="/signup" element= {<SignUp/>} />
+      <Route path="*" element={<RouteNotFound />} />
       </Route>
       </Routes>
     </div>

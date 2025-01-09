@@ -48,6 +48,8 @@ function Venues() {
                     <div className="Searchcontainer">
                         <input
                             type="text"
+                            id="searchBar"
+                            name="searchBar"
                             placeholder="Search venues..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -64,7 +66,7 @@ function Venues() {
                     {filteredItems.map((item, index) => (
                         <StyledCard
                             key={index}
-                            $backgroundImage={item.media[0]?.url || "path/to/default-image.jpg"}
+                            $backgroundImage={item.media[0]?.url}
                         >
                             <CardContent>
                                 <CardTitle>{item.name}</CardTitle>
