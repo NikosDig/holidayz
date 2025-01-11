@@ -5,7 +5,7 @@ function LogInMain() {
     return (
         <StyledLogIn>
             <h1>Log in</h1>
-            <form>
+            <form method="POST">
                 <div className="formGroup">
                     <label htmlFor="email">email</label>
                     <input 

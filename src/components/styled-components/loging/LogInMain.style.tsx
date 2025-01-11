@@ -1,81 +1,92 @@
 import styled from "styled-components";
 import logInImage from "../../images/holidayz-bg-image-login.jpg";
 
-
 const StyledLogIn = styled.main`
     background-image: url(${logInImage}); 
     width: 100%;
-    height: 84vh;
+    height: 100vh;
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center; 
+    padding: 1rem; /* Add padding to prevent edges from getting too close */
 
-
-    h1{
+    h1 {
         text-transform: uppercase;
         text-align: center;
-        padding: 2rem;
+        padding: 1rem 2rem;
         font-weight: normal;
+    }
+
+    .signUpHere {
+            text-align: center;
+             padding: 1rem;
+            color: var(--color-light-orange);
     }
 
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 50%;
-        width: 70%;
-        margin: 2rem auto;
-        padding: 2rem;
-        background-color:var(--color-blue);
-        border-radius: 8px;
+        max-width: 500px; /* Constrain the form width */
+        width: 100%; /* Full width on smaller screens */
+        margin: auto;
+        padding: 1rem 2rem;
+        background-color: var(--color-blue);
+        border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .formGroup{
-         width: 100%;
-        margin-bottom: 1.5rem;
+    .formGroup {
+        width: 100%;
+        margin-bottom: 1rem;
     }
 
-    label{
+    label {
         display: block;
         margin-bottom: 0.5rem;
         font-weight: bold;
         color: var(--color-light-orange);
     }
 
-    input {
+    input, button {
         width: 100%;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        padding: 0.8rem 1rem;
         font-size: 1rem;
         border: 1px solid #ccc;
         border-radius: 10px;
         box-sizing: border-box;
-        outline: none;
 
         &:focus {
             border-color: #007BFF;
         }
     }
 
+    .radioGroup {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between; /* Spread the radio buttons evenly */
+    }
+
     button {
-        margin: 1.5rem;
+        margin-top: 1.5rem;
+        padding: 0.8rem 2rem;
     }
 
-    .signUpHere{
-        text-align: center;
-        color: var(--color-white);
-        padding: 1rem;
+    @media (max-width: 768px) {
+        form {
+            padding: 1rem; /* Reduce padding on smaller screens */
+        }
     }
 
-    a {
-        text-decoration: underline;
-        color: var(--color-light-orange);
-        font-weight: bold;
-        background-color: rgba(18, 19, 46, 0.4);
+    @media (max-width: 480px) {
+        form {
+            padding: 0.5rem; /* Further reduce padding for very small screens */
+        }
+
+        .radioGroup {
+            flex-direction: column; /* Stack radio buttons vertically */
+        }
     }
 `;
-
-
 
 export default StyledLogIn;

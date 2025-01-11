@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: "Montserrat", Arial, sans-serif;
     background-color: var(--color-white);
+    display: flex; 
+   flex-direction: column; 
+   justify-content: space-between; 
   }
 
   a {

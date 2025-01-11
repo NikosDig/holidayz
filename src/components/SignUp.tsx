@@ -4,7 +4,6 @@ function SignUp() {
     return (
         <>
         <SignUpMain />
-        <div>sign up</div>
         </>
     )
 };
