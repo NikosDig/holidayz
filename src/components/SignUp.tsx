@@ -1,4 +1,4 @@
-import SignUpMain from "./spesific_page_components/signUp/SignUpMain";
+import SignUpMain from "./styled-components/signUp/SignUpMain";
 
 function SignUp() {
     return (

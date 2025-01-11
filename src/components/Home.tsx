@@ -1,7 +1,7 @@
-import HomeHero from "./spesific_page_components/home/HomeHero";
-import HomeTopDestinations from "./spesific_page_components/home/HomeTopDestinations";
-import WorkWithUs from "./spesific_page_components/home/WorkWithUS";
-import HomeContact from "./spesific_page_components/home/HomeContact";
+import HomeHero from "./styled-components/home/HomeHero";
+import HomeTopDestinations from "./styled-components/home/HomeTopDestinations";
+import WorkWithUs from "./styled-components/home/WorkWithUS";
+import HomeContact from "./styled-components/home/HomeContact";
 
 
 function Home() {

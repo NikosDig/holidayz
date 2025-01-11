@@ -1,4 +1,4 @@
-import SpesificVenue from "./spesific_page_components/productId/ProductIdMain";
+import SpesificVenue from "./styled-components/productId/ProductIdMain";
 
 
 function ProductId() {

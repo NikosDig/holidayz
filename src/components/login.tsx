@@ -1,4 +1,4 @@
-import LogInMain from "./spesific_page_components/loging/LogInMain";
+import LogInMain from "./styled-components/loging/LogInMain";
 
 
 function LogIn() {

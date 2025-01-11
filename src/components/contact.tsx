@@ -1,5 +1,5 @@
-import ContactHero from "./spesific_page_components/contact/ContactHero";
-import ContactMain from "./spesific_page_components/contact/ContactMain";
+import ContactHero from "./styled-components/contact/ContactHero";
+import ContactMain from "./styled-components/contact/ContactMain";
 
 
 

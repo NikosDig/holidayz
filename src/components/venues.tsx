@@ -1,4 +1,4 @@
-import Venues from "./spesific_page_components/venues/VenuesMain";
+import Venues from "./styled-components/venues/VenuesMain";
 
 
 function Venue() {
