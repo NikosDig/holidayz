@@ -24,7 +24,7 @@ const StyledSpesificVenue = styled.div`
   }
 
 
-  h1, h5 {
+  h1,h2, h5 {
     text-decoration: underline;
     text-align: center;
     color: var(--color-light-orange);
@@ -80,7 +80,8 @@ const StyledSpesificVenue = styled.div`
   }
 
   .bookingSection button:hover {
-    background-color: var(--color-dark-orange); 
+    background-color: var(--color-orange); 
+    color: var(--color-blue)
   }
 
   /* If not logged in, provide spacing and centered styling */
