@@ -4,7 +4,7 @@ import logInImage from "../../images/holidayz-bg-image-login.jpg";
 const StyledLogIn = styled.main`
     background-image: url(${logInImage}); 
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center; 
