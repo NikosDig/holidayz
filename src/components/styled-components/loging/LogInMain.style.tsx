@@ -72,6 +72,13 @@ const StyledLogIn = styled.main`
         padding: 0.8rem 2rem;
     }
 
+
+    .error {
+        background-color: red;
+        color: white;
+        text-align: center;
+    }
+
     @media (max-width: 768px) {
         form {
             padding: 1rem; /* Reduce padding on smaller screens */
