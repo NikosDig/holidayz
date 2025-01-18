@@ -12,6 +12,12 @@ const StyledProfile = styled.div`
     width: 100%;
   }
 
+  .editProfileContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -50,9 +56,8 @@ const StyledProfile = styled.div`
     width: 200px;   
     height: 200px;
     border-radius: 50%;
-    border: 5px solid white; /* Optional: adds a border around the avatar for contrast */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: adds shadow around avatar */
-  }
+    border: 5px solid white; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
 
   .bookings ul {
     list-style: none;
@@ -81,6 +86,19 @@ const StyledProfile = styled.div`
     font-size: 1.5rem;
     color: #888;
     text-align: center;
+  }
+
+
+    svg {
+    margin-left: 8px;
+    width: 24px;
+    height: 24px;
+    fill: #444;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;
 

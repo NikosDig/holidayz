@@ -9,6 +9,7 @@ import Home from "./components/Home"
 import LogIn from "./components/login"
 import ProductId from "./components/ProductId"
 import SignUp from "./components/SignUp"
+import EditProfile from "./components/EditProfile"
 
 
 
@@ -24,6 +25,7 @@ function App() {
       <Route path="login" element={<LogIn />} />
       <Route path="/product/:id" element={<ProductId/>} />
       <Route path="/signup" element= {<SignUp/>} />
+      <Route path="/editProfile" element= {<EditProfile/>} />
       <Route path="*" element={<RouteNotFound />} />
       </Route>
       </Routes>
