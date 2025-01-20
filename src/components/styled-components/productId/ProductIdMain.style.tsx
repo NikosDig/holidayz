@@ -67,12 +67,15 @@ const StyledSpesificVenue = styled.div`
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   }
 
+  #btn {
+  padding: 0.8rem 2rem;
+  }
   
   .bookingSection button {
     background-color: var(--color-orange);
     color: white;
     border: none;
-    padding: 0.8rem 2rem;
+    
     font-size: 1rem;
     cursor: pointer;
     border-radius: 8px;
@@ -108,3 +111,5 @@ const StyledSpesificVenue = styled.div`
 `;
 
 export default StyledSpesificVenue;
+
+

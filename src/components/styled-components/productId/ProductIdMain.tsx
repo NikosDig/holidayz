@@ -138,7 +138,7 @@ function SpesificVenue() {
 
       {isLoggedIn && (
         <div className="bookingSection">
-          <button onClick={handleOpenModal}>Book Now</button>
+          <button id="btn" onClick={handleOpenModal}>Book Now</button>
           <Bookings bookings={bookings} isLoggedIn={isLoggedIn} />
         </div>
       )}
