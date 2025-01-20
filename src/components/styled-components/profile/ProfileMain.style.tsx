@@ -8,7 +8,7 @@ const StyledProfile = styled.div`
   min-height: 100vh;
   text-align: center;
 
-  .infoContainer{
+  .infoContainer {
     width: 100%;
   }
 
@@ -30,7 +30,8 @@ const StyledProfile = styled.div`
 
   h2 {
     font-size: 1.5rem;
-    color: #444;
+    color: var(--color-light-orange);
+    text-decoration: underline;
     margin-top: 20px;
     text-align: left;
   }
@@ -58,15 +59,15 @@ const StyledProfile = styled.div`
     border-radius: 50%;
     border: 5px solid white; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
-
-  .bookings ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
   }
 
-  .bookings li {
+  .bookings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bookings div {
     background-color: #fff;
     padding: 15px;
     margin-bottom: 15px;
@@ -88,8 +89,7 @@ const StyledProfile = styled.div`
     text-align: center;
   }
 
-
-    svg {
+  svg {
     margin-left: 8px;
     width: 24px;
     height: 24px;

@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Booking } from "../../../ts/types";
-import { format } from 'date-fns';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import StyledBookings from './Booking.style';

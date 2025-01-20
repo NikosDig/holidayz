@@ -1,25 +1,62 @@
-
 import React, { useEffect, useState } from 'react';
 import StyledProfile from './ProfileMain.style';
 import { Link } from 'react-router-dom';
+import { API_KEY } from '../../hooks/url';
+import { format } from 'date-fns';
 
 function ProfileMain() {
   const [user, setUser] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
-  
   useEffect(() => {
-    const storedUserData = localStorage.getItem("userData");
-    if (storedUserData) {
-      const userData = JSON.parse(storedUserData);
-      setUser(userData);
-    } else {
-      console.error("User data not found in localStorage.");
-    }
-  }, []); 
+    const fetchUserProfile = async () => {
+      const storedUserData = localStorage.getItem("userData");
+      if (storedUserData) {
+        const userData = JSON.parse(storedUserData);
+        const token = localStorage.getItem("authToken");
 
-  
-  if (!user) {
+        try {
+          const response = await fetch(`https://v2.api.noroff.dev/holidaze/profiles/${userData.name}?_bookings=true`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "X-Noroff-API-Key": API_KEY,
+              "Content-Type": "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(`Failed to fetch profile. Status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          setUser(result.data);
+        } catch (error) {
+          console.error("Error fetching profile:", error);
+          setIsError(true);
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        console.error("User data not found in localStorage.");
+        setIsLoading(false);
+        setIsError(true);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error fetching profile data.</div>;
+  }
+
+  if (!user) {
+    return <div>No user data available.</div>;
   }
 
   const bookings = user.bookings || [];
@@ -46,18 +83,18 @@ function ProfileMain() {
             <img className="avatar" src={user.avatar.url} alt={user.avatar.alt} />
           )}
         </div>
-        <div>
+        <div className='bookings'>
           <h2>Bookings:</h2>
           {bookings.length > 0 ? (
-            <ul>
+            <div>
               {bookings.map((booking: any) => (
-                <li key={booking.id}>
-                  <p>Booking ID: {booking.id}</p>
-                  <p>From: {booking.dateFrom} To: {booking.dateTo}</p>
+                <div key={booking.id}>
+                  <p>From: {format(new Date(booking.dateFrom), 'dd MMM yyyy')} To: {format(new Date(booking.dateTo), 'dd MMM yyyy')}</p>
                   <p>Guests: {booking.guests}</p>
-                </li>
+                  <p>Venue: {booking.venue.name}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           ) : (
             <p>No bookings found.</p>
           )}
