@@ -1,69 +1,82 @@
-import styled from 'styled-components';
 
-const StyledModal = styled.div<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+import styled from "styled-components";
+
+const StyledModal = styled.div<{ $isOpen: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
   position: fixed;
-  top: 0;
+  z-index: 1;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 
   .modalContent {
-    background-color: white;
+    background-color: #fefefe;
+    margin: 15% auto;
     padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
     border-radius: 8px;
-    width: 400px;
-    max-width: 100%;
-    position: relative;
   }
 
   .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    background: none;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .closeButton:hover,
+  .closeButton:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
   }
 
   .formGroup {
-    margin-bottom: 15px;
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+    margin-bottom: 1rem;
   }
 
- #bookNow {
-  background-color: var(--color-light-orange);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 4px;
-  width: 100%;
-  font-size: 16px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  .formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
 
-  &:hover {
+  .formGroup input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .formGroup p {
+    margin-top: 0.5rem;
+    color: #555;
+  }
+
+  #bookNow {
+    background-color: var(--color-orange);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: auto;
+  }
+
+  #bookNow:hover {
     background-color: var(--color-light-orange);
-    color: var(--color-blue)
+    color: var(--color-blue);
   }
-}   
 `;
 
 export default StyledModal;

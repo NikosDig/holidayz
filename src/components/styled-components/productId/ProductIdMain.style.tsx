@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 const StyledSpesificVenue = styled.div`
@@ -5,7 +6,6 @@ const StyledSpesificVenue = styled.div`
   margin: 2rem auto;
   padding: 1rem;
 
-  
   .imageContainer {
     width: 100%;
     margin: 1rem 0;
@@ -23,15 +23,13 @@ const StyledSpesificVenue = styled.div`
     border-radius: 8px;
   }
 
-
-  h1,h2, h5 {
+  h1, h2, h5 {
     text-decoration: underline;
     text-align: center;
     color: var(--color-light-orange);
     margin-bottom: 1rem;
   }
 
-  
   .detailsContainer {
     display: flex;
     flex-wrap: wrap;
@@ -51,12 +49,10 @@ const StyledSpesificVenue = styled.div`
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   }
 
-  
   .orangeContainer p {
     margin: 0.5rem 0;
   }
 
-  
   .bookingSection {
     text-align: center;
     margin-top: 2rem;
@@ -68,14 +64,13 @@ const StyledSpesificVenue = styled.div`
   }
 
   #btn {
-  padding: 0.8rem 2rem;
+    padding: 0.8rem 2rem;
   }
   
   .bookingSection button {
     background-color: var(--color-orange);
     color: white;
     border: none;
-    
     font-size: 1rem;
     cursor: pointer;
     border-radius: 8px;
@@ -84,16 +79,34 @@ const StyledSpesificVenue = styled.div`
 
   .bookingSection button:hover {
     background-color: var(--color-orange); 
-    color: var(--color-blue)
+    color: var(--color-blue);
   }
 
-  /* If not logged in, provide spacing and centered styling */
   .bookingSection p {
     color: #555;
     font-size: 1rem;
   }
 
- 
+  .successMessage {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .errorMessage {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+
   @media (max-width: 768px) {
     .detailsContainer {
       flex-direction: column;
@@ -111,5 +124,3 @@ const StyledSpesificVenue = styled.div`
 `;
 
 export default StyledSpesificVenue;
-
-

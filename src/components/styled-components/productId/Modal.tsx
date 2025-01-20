@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import StyledModal from "./Modal.style";
 
@@ -30,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, maxGuests }) =
   };
 
   return (
-    <StyledModal isOpen={isOpen}>
+    <StyledModal $isOpen={isOpen}>
       <div className="modalContent">
         <button className="closeButton" onClick={onClose}>X</button>
         <h2>Booking Details</h2>
@@ -43,6 +44,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, maxGuests }) =
               id="dateFrom"
               value={formData.dateFrom}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="formGroup">
@@ -53,6 +55,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, maxGuests }) =
               id="dateTo"
               value={formData.dateTo}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="formGroup">
@@ -65,6 +68,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, maxGuests }) =
               max={maxGuests}  
               value={formData.guests}
               onChange={handleChange}
+              required
             />
             <p>Max guests: {maxGuests}</p>
           </div>

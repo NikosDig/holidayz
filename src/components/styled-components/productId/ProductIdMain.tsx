@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import StyledSpesificVenue from "./ProductIdMain.style";
@@ -14,7 +15,8 @@ function SpesificVenue() {
   const [isError, setIsError] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState<{ dateFrom: string; dateTo: string; guests: number }>({ dateFrom: '', dateTo: '', guests: 1 });
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const url = `https://v2.api.noroff.dev/holidaze/venues/${id}`;
   const apiKey = API_KEY;
 
@@ -81,9 +83,57 @@ function SpesificVenue() {
     fetchVenue();
   }, [id, isLoggedIn]);
 
-  const handleBookingSubmit = (data: { dateFrom: string; dateTo: string; guests: number }) => {
-    console.log("Booking Submitted:", data);
-    // Handle the booking logic here (e.g., send to API)
+  const handleBookingSubmit = async (data: { dateFrom: string; dateTo: string; guests: number }) => {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      console.error("User is not authenticated.");
+      return;
+    }
+
+    try {
+      const response = await fetch("https://v2.api.noroff.dev/holidaze/bookings", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "X-Noroff-API-Key": API_KEY,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          venueId: id,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to create booking. Status: ${response.status}. ${errorText}`);
+      }
+
+      const result = await response.json();
+      console.log("Booking created successfully:", result);
+
+      
+      setBookings((prevBookings) => [...prevBookings, result.data]);
+
+      
+      setSuccessMessage("Booking created successfully!");
+
+      
+      setIsModalOpen(false);
+
+      
+      setTimeout(() => {
+        setSuccessMessage(null);
+      }, 3000);
+    } catch (error) {
+      console.error("Error creating booking:", error);
+      setErrorMessage((error as Error).message);
+
+      
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 3000);
+    }
   };
 
   const handleOpenModal = () => {
@@ -140,6 +190,8 @@ function SpesificVenue() {
         <div className="bookingSection">
           <button id="btn" onClick={handleOpenModal}>Book Now</button>
           <Bookings bookings={bookings} isLoggedIn={isLoggedIn} />
+          {successMessage && <p className="successMessage">{successMessage}</p>}
+          {errorMessage && <p className="errorMessage">{errorMessage}</p>}
         </div>
       )}
 
