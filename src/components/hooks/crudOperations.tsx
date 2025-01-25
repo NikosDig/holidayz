@@ -8,9 +8,9 @@ export const createVenue = async (authToken: string, venueData: any) => {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
                 'X-Noroff-API-Key': API_KEY,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(venueData)
+            body: JSON.stringify(venueData),
         });
 
         if (!response.ok) {
@@ -18,12 +18,14 @@ export const createVenue = async (authToken: string, venueData: any) => {
             throw new Error(`Failed to create venue: ${errorBody}`);
         }
 
-        return await response.json();
+        const responseBody = await response.json();
+        return responseBody;  
     } catch (error) {
         console.error('Create venue error:', error);
         throw error;
     }
 };
+
 
 // Update Venue
 export const updateVenue = async (authToken: string, venueId: string, venueData: any) => {
