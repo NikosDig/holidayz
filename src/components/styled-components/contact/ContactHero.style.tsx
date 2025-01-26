@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ContactHeroImage from "../../images/holidayz-contact-croped.png";
+
 
 
 

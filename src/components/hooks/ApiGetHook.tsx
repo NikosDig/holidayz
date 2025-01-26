@@ -1,7 +1,7 @@
 import {urlGetVenues} from "./url";
 import { useState, useEffect } from 'react';
 
-const venues = urlGetVenues;
+
 
 // Define the shape of the venue object
 interface Media {

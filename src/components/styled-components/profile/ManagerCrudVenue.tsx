@@ -3,7 +3,6 @@ import StyledManagerCrudVenue from './ManagerCrudVenue.style';
 import { createVenue, updateVenue, deleteVenue } from '../../hooks/crudOperations';
 import { API_KEY } from '../../hooks/url';
 import { Link } from 'react-router-dom';
-import {format} from "date-fns";
 
 const ManagerCrudVenue: React.FC = () => {
     const [venues, setVenues] = useState<any[]>([]);
