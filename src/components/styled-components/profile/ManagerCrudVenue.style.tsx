@@ -77,6 +77,10 @@ const StyledManagerCrudVenue = styled.div<{ $isVisible: boolean }>`
         justify-content: space-around; 
         gap: 10px; 
     }
+
+    button {
+        margin:10px 5px;
+    }
 `;
 
 export default StyledManagerCrudVenue;

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import StyledManagerCrudVenue from './ManagerCrudVenue.style';
 import { createVenue, updateVenue, deleteVenue } from '../../hooks/crudOperations';
 import { API_KEY } from '../../hooks/url';
+import { Link } from 'react-router-dom';
+import {format} from "date-fns";
 
 const ManagerCrudVenue: React.FC = () => {
     const [venues, setVenues] = useState<any[]>([]);
@@ -43,7 +45,7 @@ const ManagerCrudVenue: React.FC = () => {
             setLoading(true);
             try {
                 const response = await fetch(
-                    `https://v2.api.noroff.dev/holidaze/venues?_owner=true`,
+                    `https://v2.api.noroff.dev/holidaze/venues?_owner=true&_bookings=true`,
                     {
                         headers: {
                             Authorization: `Bearer ${authToken}`,
@@ -180,6 +182,26 @@ const ManagerCrudVenue: React.FC = () => {
                             <p>{venue.description}</p>
                             <p>Price: ${venue.price}</p>
                             <p>Max Guests: {venue.maxGuests}</p>
+
+                            {/* Display reservations for each venue */}
+                            <div>
+                                <h4>Reservations:</h4>
+                                {venue.bookings && venue.bookings.length > 0 ? (
+                                    <ul>
+                                        {venue.bookings.map((booking: any, bookingIndex: number) => (
+                                            <li key={bookingIndex}>
+                                                <p>Guest Name: {booking.customer.name}</p>
+                                                <p>Check-in: {format(new Date(booking.dateFrom), 'PPP')}</p>
+                                                <p>Check-out: {format(new Date(booking.dateTo), 'PPP')}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p>No reservations yet.</p>
+                                )}
+                            </div>
+
+
                             <button
                                 onClick={() => {
                                     setEditVenue(venue);
@@ -189,14 +211,15 @@ const ManagerCrudVenue: React.FC = () => {
                                 Edit
                             </button>
                             <button onClick={() => handleDeleteVenue(venue.id)}>Delete</button>
+                            <Link to={`/product/${venue.id}`}>
+                                <button>View Venue</button>
+                            </Link>
                         </li>
                     ))
                 ) : (
                     <p>No venues created yet.</p>
                 )}
             </ul>
-
-
 
             {showEditModal && (
                 <div className="modal">
