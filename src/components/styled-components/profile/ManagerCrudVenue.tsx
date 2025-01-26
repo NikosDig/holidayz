@@ -214,7 +214,7 @@ const ManagerCrudVenue: React.FC = () => {
                                 Edit
                             </button>
                             <button onClick={() => handleDeleteVenue(venue.id)}>Delete</button>
-                            <Link to={`/venue/${venue.id}`}>
+                            <Link to={`/product/${venue.id}`}>
                                 <button>View Venue</button>
                             </Link>
                         </li>
