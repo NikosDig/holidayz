@@ -101,10 +101,15 @@ const StyledManagerCrudVenue = styled.div<{ $isVisible: boolean }>`
     background-position: center;
     color: white;
     font-weight: bold;
+    
 }
 
 .yourVenuesLi:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); 
+}
+
+yourVenuesLi h3, .yourVenuesLi p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 `;
 
