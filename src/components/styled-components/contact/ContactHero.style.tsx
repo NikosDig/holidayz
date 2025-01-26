@@ -8,7 +8,7 @@ import ContactHeroImage from "../../images/holidayz-contact-croped.png";
 const StyledContactHero = styled.div`
     width:100%;
     height: 640px;
-    background-image: url(${ContactHeroImage});  
+    background-image: url(/images/holidayz-contact-croped.png);  
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center; 
