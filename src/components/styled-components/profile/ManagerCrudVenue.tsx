@@ -177,12 +177,16 @@ const ManagerCrudVenue: React.FC = () => {
             <ul>
                 {venues.length > 0 ? (
                     venues.map((venue: any, index: number) => (
-                        <li key={venue.id || index}>
+                        <li
+                            key={venue.id || index} 
+                            className="yourVenuesLi"
+                            style={{ backgroundImage: `url(${venue.media[0]?.url})` }} // Set the background image
+                        >
                             <h3>{venue.name}</h3>
                             <p>{venue.description}</p>
                             <p>Price: ${venue.price}</p>
                             <p>Max Guests: {venue.maxGuests}</p>
-
+                    
                             {/* Display reservations for each venue */}
                             <div>
                                 <h4>Reservations:</h4>
@@ -191,8 +195,8 @@ const ManagerCrudVenue: React.FC = () => {
                                         {venue.bookings.map((booking: any, bookingIndex: number) => (
                                             <li key={bookingIndex}>
                                                 <p>Guest Name: {booking.customer.name}</p>
-                                                <p>Check-in: {format(new Date(booking.dateFrom), 'PPP')}</p>
-                                                <p>Check-out: {format(new Date(booking.dateTo), 'PPP')}</p>
+                                                <p>Check-in: {new Date(booking.dateFrom).toLocaleDateString()}</p>
+                                                <p>Check-out: {new Date(booking.dateTo).toLocaleDateString()}</p>
                                             </li>
                                         ))}
                                     </ul>
@@ -200,8 +204,7 @@ const ManagerCrudVenue: React.FC = () => {
                                     <p>No reservations yet.</p>
                                 )}
                             </div>
-
-
+                            
                             <button
                                 onClick={() => {
                                     setEditVenue(venue);
@@ -211,7 +214,7 @@ const ManagerCrudVenue: React.FC = () => {
                                 Edit
                             </button>
                             <button onClick={() => handleDeleteVenue(venue.id)}>Delete</button>
-                            <Link to={`/product/${venue.id}`}>
+                            <Link to={`/venue/${venue.id}`}>
                                 <button>View Venue</button>
                             </Link>
                         </li>
@@ -220,6 +223,7 @@ const ManagerCrudVenue: React.FC = () => {
                     <p>No venues created yet.</p>
                 )}
             </ul>
+
 
             {showEditModal && (
                 <div className="modal">

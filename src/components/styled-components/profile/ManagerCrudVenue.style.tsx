@@ -15,6 +15,8 @@ const StyledManagerCrudVenue = styled.div<{ $isVisible: boolean }>`
         color: var(--color-light-orange);
         text-decoration: underline;
         margin-top: 20px;
+        font-weight: bold;
+        text-transform: capitalize;
     }
 
     legend {
@@ -81,6 +83,29 @@ const StyledManagerCrudVenue = styled.div<{ $isVisible: boolean }>`
     button {
         margin:10px 5px;
     }
+
+.yourVenuesLi {
+    list-style: none;
+    border: 5px solid white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease; 
+      background-image: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.6), 
+            rgba(0, 0, 0, 0.6)
+        ), url(''); 
+    background-size: cover; 
+    background-position: center;
+    color: white;
+    font-weight: bold;
+}
+
+.yourVenuesLi:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); 
+}
 `;
 
 export default StyledManagerCrudVenue;
