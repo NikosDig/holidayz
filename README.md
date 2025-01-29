@@ -9,7 +9,11 @@ Holidaze is a modern accommodation booking platform where users can book holiday
 ### test account
 
 for testing purposes use:
+
+
 email: test101@noroff.no
+
+
 pass: 11111111
 
 ### Customer Features
