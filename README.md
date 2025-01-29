@@ -1,70 +1,153 @@
-# Getting Started with Create React App
+# Holidaze Front-End Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+## Overview
 
-## Available Scripts
+Holidaze is a modern accommodation booking platform where users can book holidays at various venues. This project focuses on developing the front-end interface for the Holidaze website, including both the customer-facing and admin-facing features. It integrates with an existing API to handle all data-related operations.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### Customer Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- View a list of venues.
+- Search for a specific venue.
+- View a detailed venue page by ID.
+- Check a venue's availability using a calendar.
+- Register as a customer (with a `stud.noroff.no` email).
+- Create bookings at venues.
+- View upcoming bookings.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Admin Features (Venue Manager)
 
-### `npm test`
+- Register as a venue manager (with a `stud.noroff.no` email).
+- Create, update, and delete venues they manage.
+- View bookings for managed venues.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### General Features
 
-### `npm run build`
+- User login and logout functionality.
+- User avatar update.
+- Integration with the official API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technical Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Front-End Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **JavaScript Framework**: React 18.2
+- **CSS Framework**: Styled-components
+- **Routing**: React Router
+- **Date Handling**: date-fns
+- **API Integration**: Custom API integration with Holidaze API
 
-### `npm run eject`
+## Setup and Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js (Latest LTS version recommended)
+- npm (Comes with Node.js)
+- Git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation Steps
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone the repository:**
 
-## Learn More
+   ```bash
+   git clone https://github.com/NikosDig/holidayz.git
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Navigate to the project folder:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   cd holidayz
+   ```
 
-### Code Splitting
+3. **Install dependencies:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+4. **Start the development server:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm start
+   ```
 
-### Making a Progressive Web App
+   The application will be accessible at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5. **Build the project for production:**
 
-### Advanced Configuration
+   ```bash
+   npm run build
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Development
 
-### Deployment
+### Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- ``: Runs the app in development mode.
+- ``: Builds the app for production to the `build` folder.
+- ``: Runs the test suite.
+- ``: Ejects the configuration for advanced customizations.
 
-### `npm run build` fails to minify
+### Code Quality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- ESLint and Prettier are used for maintaining code quality and formatting.
+
+## Project Links
+
+- **Gantt Chart**: [Link to Gantt Chart]
+- **Design Prototype**: [Link to Figma/Adobe XD Prototype]
+- **Style Guide**: [Link to Style Guide]
+- **Kanban Board**: [Link to Trello/Kanban Board]
+- **Repository Link**: [https://github.com/NikosDig/holidayz](https://github.com/NikosDig/holidayz)
+- **Hosted Application Demo**: [Link to Live Demo]
+
+## Testing
+
+### API Testing
+
+- Ensure the API is running and accessible.
+- Test features like venue listing, booking, and user authentication.
+
+### UI Testing
+
+- Verify responsiveness of all UI components.
+- Ensure all forms function correctly (registration, booking, login).
+
+## Deployment
+
+The project is hosted using an approved static hosting platform, such as:
+
+- Netlify
+- GitHub Pages
+
+## Technical Details
+
+### Dependencies
+
+- **React 18.2**: For building the user interface.
+- **React Router**: For handling routing.
+- **Styled-components**: For component-level styling.
+- **date-fns**: For managing and formatting dates.
+- **TypeScript**: Ensures type safety and better developer experience.
+- **React Calendar**: For displaying venue availability.
+
+### Dev Dependencies
+
+- **@types/react**: Type definitions for React.
+- **@babel/plugin-proposal-private-property-in-object**: Babel plugin for private class properties.
+
+## Contributing
+
+### Contribution Guidelines
+
+1. **Fork the repository.**
+2. **Create a feature branch.**
+3. **Commit your changes.**
+4. **Push to your branch.**
+5. **Submit a pull request.**
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
