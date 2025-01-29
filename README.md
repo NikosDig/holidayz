@@ -106,30 +106,29 @@ pass: 11111111
 ## Project Links
 
 - **Gantt Chart**: [Link to Gantt Chart]
-- **Design Prototype**: [Link to Figma/Adobe XD Prototype]
-- **Style Guide**: [Link to Style Guide]
+- **Design Prototype**: design made with AdobeXD
+- **Style Guide**: style guide made with AdobeXD
 - **Kanban Board**: [Link to Trello/Kanban Board]
 - **Repository Link**: [https://github.com/NikosDig/holidayz](https://github.com/NikosDig/holidayz)
-- **Hosted Application Demo**: [Link to Live Demo]
+- **Hosted Application Demo**: [https://nikosholidayz.netlify.app/]
 
 ## Testing
 
-### API Testing
+<!-- ### API Testing
 
 - Ensure the API is running and accessible.
-- Test features like venue listing, booking, and user authentication.
+- Test features like venue listing, booking, and user authentication. -->
 
-### UI Testing
+<!-- ### UI Testing
 
 - Verify responsiveness of all UI components.
-- Ensure all forms function correctly (registration, booking, login).
+- Ensure all forms function correctly (registration, booking, login). -->
 
 ## Deployment
 
 The project is hosted using an approved static hosting platform, such as:
 
 - Netlify
-- GitHub Pages
 
 ## Technical Details
 
