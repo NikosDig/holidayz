@@ -1,12 +1,14 @@
 {
+  "plugins": [
+    "node_modules/jsdoc/plugins/typescript"
+  ],
   "source": {
-    "include": ["src"],
-    "exclude": ["node_modules/"],
-    "recurse": true
+    "include": ["./src"],
+    "includePattern": ".+\\.(js|jsx|ts|tsx)$",
+    "excludePattern": "(node_modules|bower_components)"
   },
   "opts": {
-    "destination": "./docs",   
-    "encoding": "utf8",  
-    "private": false          
+    "template": "node_modules/jsdoc-template",
+    "destination": "./docs"
   }
 }

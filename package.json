@@ -6,6 +6,7 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.2",
     "date-fns": "^4.1.0",
+    "jsdoc-plugin-typescript": "^3.2.0",
     "react": "^18.2.0",
     "react-calendar": "^5.1.0",
     "react-dom": "^18.2.0",
@@ -45,6 +46,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
-    "jsdoc": "^4.0.4"
+    "jsdoc": "^4.0.4",
+    "jsdoc-template": "^1.2.0"
   }
 }
