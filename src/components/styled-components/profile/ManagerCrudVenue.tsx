@@ -166,26 +166,34 @@ const ManagerCrudVenue: React.FC = () => {
      * @function
      */
     const handleUpdateVenue = async () => {
-        if (!authToken || !editVenue) return;
+
+        const authToken = localStorage.getItem('authToken');
+
+    
+        if (!authToken || !editVenue) {
+            return;
+        }
     
         try {
-            
-            const updatedVenue = await updateVenue(authToken, editVenue.id, editVenue);
+            const response = await updateVenue(authToken, editVenue.id, editVenue);
+            const updatedVenue = response.data;
+           // console.log('Updated venue:', updatedVenue);
     
-            // Update the list of venues with the updated venue
             setVenues((prevVenues) =>
                 prevVenues.map((venue) =>
-                    venue.id === updatedVenue.id ? { ...updatedVenue } : venue
+                    venue.id === updatedVenue.id ? updatedVenue : venue
                 )
             );
     
-            // Close the edit modal and reset the edited venue state
             setShowEditModal(false);
             setEditVenue(null);
         } catch (error) {
             console.error('Error updating venue:', error);
         }
     };
+    
+    
+    
     
 
     /**
@@ -211,7 +219,7 @@ const ManagerCrudVenue: React.FC = () => {
      */
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
-
+    
         const updateState = (prev: any) => {
             if (type === 'checkbox') {
                 const isChecked = (e.target as HTMLInputElement).checked;
@@ -226,13 +234,14 @@ const ManagerCrudVenue: React.FC = () => {
                 return { ...prev, [name]: value };
             }
         };
-
+    
         if (showEditModal) {
             setEditVenue((prev: any) => updateState(prev));
         } else {
             setNewVenue((prev: any) => updateState(prev));
         }
     };
+    
 
     /**
      * Conditional rendering based on the user role, loading state, and error state.
@@ -310,35 +319,35 @@ const ManagerCrudVenue: React.FC = () => {
                         type="text"
                         name="name"
                         placeholder="Name"
-                        value={editVenue.name}
+                        value={editVenue?.name || ''}
                         onChange={handleChange}
                     />
                     <input
                         type="text"
                         name="description"
                         placeholder="Description"
-                        value={editVenue.description}
+                        value={editVenue?.description || ''}
                         onChange={handleChange}
                     />
                     <input
                         type="text"
                         name="media"
                         placeholder="Image URL"
-                        value={editVenue.media[0]?.url || ''}
+                        value={editVenue?.media[0]?.url || ''}
                         onChange={handleChange}
                     />
                     <input
                         type="number"
                         name="price"
                         placeholder="Price"
-                        value={editVenue.price}
+                        value={editVenue?.price || ''}
                         onChange={handleChange}
                     />
                     <input
                         type="number"
                         name="maxGuests"
                         placeholder="Max Guests"
-                        value={editVenue.maxGuests}
+                        value={editVenue?.maxGuests || ''}
                         onChange={handleChange}
                     />
                     <button onClick={handleUpdateVenue}>Save Changes</button>

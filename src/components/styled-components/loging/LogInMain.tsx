@@ -55,16 +55,16 @@ function LogInMain(): JSX.Element {
 
             // Parse response data
             const data = await response.json();
-            console.log("Response Data:", data);
+           // console.log("Response Data:", data);
 
             // Store user data and authentication token if login is successful
             if (data.data && data.data.accessToken) {
-                console.log("Storing user data in localStorage:", data.data);
+               // console.log("Storing user data in localStorage:", data.data);
                 localStorage.setItem("userData", JSON.stringify(data.data)); 
                 localStorage.setItem("authToken", data.data.accessToken);
 
                 // Redirect user to profile page after successful login
-                console.log("Redirecting to /profile");
+               // console.log("Redirecting to /profile");
                 navigate("/profile");
             } else {
                 throw new Error("Authentication failed. No accessToken returned.");
