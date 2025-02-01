@@ -28,7 +28,6 @@ function ProfileMain() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   
-  // Declare bookings state at the top level, before any conditionals
   const [bookings, setBookings] = useState<Booking[]>([]);
 
   useEffect(() => {
@@ -158,7 +157,7 @@ function ProfileMain() {
   }
 
   if (!user) {
-    return <div>No user data available.</div>;
+    return <div>Log in to see your profile</div>;
   }
 
   return (

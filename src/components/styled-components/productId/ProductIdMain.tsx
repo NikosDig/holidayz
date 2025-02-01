@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import StyledSpesificVenue from "./ProductIdMain.style";
@@ -7,6 +6,11 @@ import { Venue, Booking } from "../../../ts/types";
 import Bookings from './Bookings'; 
 import Modal from './Modal';
 
+/**
+ * Props for the SpesificVenue component.
+ * @interface SpesificVenueProps
+ * @property {string} id - The venue ID extracted from the URL parameters, used to fetch venue and booking details.
+ */
 function SpesificVenue() {
   const { id } = useParams<{ id: string }>();
   const [venue, setVenue] = useState<Venue | null>(null);
@@ -20,6 +24,11 @@ function SpesificVenue() {
   const url = `https://v2.api.noroff.dev/holidaze/venues/${id}`;
   const apiKey = API_KEY;
 
+  /**
+   * Fetches venue details and booking information from the API on initial component mount.
+   * It checks the authentication status and loads venue and bookings data based on the `id` parameter.
+   * It handles loading, error, and success states.
+   */
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     setIsLoggedIn(!!token);
@@ -83,6 +92,16 @@ function SpesificVenue() {
     fetchVenue();
   }, [id, isLoggedIn]);
 
+  /**
+   * Handles the submission of booking data, sending the data to the API and updating the booking list.
+   * On success, shows a success message and closes the modal. 
+   * On failure, shows an error message.
+   * 
+   * @param {Object} data - The data to submit.
+   * @param {string} data.dateFrom - The start date of the booking.
+   * @param {string} data.dateTo - The end date of the booking.
+   * @param {number} data.guests - The number of guests for the booking.
+   */
   const handleBookingSubmit = async (data: { dateFrom: string; dateTo: string; guests: number }) => {
     const token = localStorage.getItem("authToken");
     if (!token) {
@@ -112,16 +131,11 @@ function SpesificVenue() {
       const result = await response.json();
       console.log("Booking created successfully:", result);
 
-      
       setBookings((prevBookings) => [...prevBookings, result.data]);
 
-      
       setSuccessMessage("Booking created successfully!");
-
-      
       setIsModalOpen(false);
 
-      
       setTimeout(() => {
         setSuccessMessage(null);
       }, 3000);
@@ -129,17 +143,22 @@ function SpesificVenue() {
       console.error("Error creating booking:", error);
       setErrorMessage((error as Error).message);
 
-      
       setTimeout(() => {
         setErrorMessage(null);
       }, 3000);
     }
   };
 
+  /**
+   * Opens the modal for booking.
+   */
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
 
+  /**
+   * Closes the modal for booking.
+   */
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };

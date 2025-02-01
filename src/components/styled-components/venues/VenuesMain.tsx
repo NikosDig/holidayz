@@ -1,3 +1,9 @@
+/**
+ * @file Venues.js
+ * @description This file defines the Venues component which displays a list of venues fetched from an API.
+ * Users can search for venues using a search bar.
+ */
+
 import StyledVenuesMain from "./VenuesMain.style";
 import ApiGetHook from "../../hooks/ApiGetHook";
 import { urlGetVenues } from "../../hooks/url";
@@ -11,11 +17,20 @@ import {
     CardDescription,
 } from "../home/HomeTopDestinations.style";
 
-// Helper function to truncate text
-function truncateText(text: string, maxLength: number): string {
+/**
+ * Helper function to truncate text to a specified maximum length.
+ * @param {string} text - The text to truncate.
+ * @param {number} maxLength - The maximum length of the truncated text.
+ * @returns {string} - The truncated text with ellipsis if it exceeds the maximum length.
+ */
+function truncateText(text : string, maxLength : number) {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 }
 
+/**
+ * Venues component to display a list of venues with a search functionality.
+ * @component
+ */
 function Venues() {
     const url = urlGetVenues; 
     const { items, isError } = ApiGetHook(url);
@@ -23,7 +38,6 @@ function Venues() {
     const [searchQuery, setSearchQuery] = useState("");
     const [loading, setLoading] = useState(true);
 
-    
     useEffect(() => {
         if (items && items.length > 0) {
             setLoading(false);

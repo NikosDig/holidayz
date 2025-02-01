@@ -1,6 +1,13 @@
 import { API_KEY } from './url';
 
-// Create Venue
+/**
+ * Creates a new venue.
+ * 
+ * @param {string} authToken - The authentication token for authorization.
+ * @param {object} venueData - The data of the venue to be created.
+ * @returns {Promise<object>} - The created venue data.
+ * @throws {Error} - Throws an error if the request fails.
+ */
 export const createVenue = async (authToken: string, venueData: any) => {
     try {
         const response = await fetch('https://v2.api.noroff.dev/holidaze/venues', {
@@ -26,8 +33,15 @@ export const createVenue = async (authToken: string, venueData: any) => {
     }
 };
 
-
-// Update Venue
+/**
+ * Updates an existing venue.
+ * 
+ * @param {string} authToken - The authentication token for authorization.
+ * @param {string} venueId - The ID of the venue to update.
+ * @param {object} venueData - The updated data for the venue.
+ * @returns {Promise<object>} - The updated venue data.
+ * @throws {Error} - Throws an error if the request fails.
+ */
 export const updateVenue = async (authToken: string, venueId: string, venueData: any) => {
     try {
         const response = await fetch(`https://v2.api.noroff.dev/holidaze/venues/${venueId}`, {
@@ -52,7 +66,14 @@ export const updateVenue = async (authToken: string, venueId: string, venueData:
     }
 };
 
-// Delete Venue
+/**
+ * Deletes an existing venue.
+ * 
+ * @param {string} authToken - The authentication token for authorization.
+ * @param {string} venueId - The ID of the venue to delete.
+ * @returns {Promise<boolean>} - Returns true if the deletion is successful.
+ * @throws {Error} - Throws an error if the request fails.
+ */
 export const deleteVenue = async (authToken: string, venueId: string) => {
     try {
         const response = await fetch(`https://v2.api.noroff.dev/holidaze/venues/${venueId}`, {
@@ -75,7 +96,13 @@ export const deleteVenue = async (authToken: string, venueId: string) => {
     }
 };
 
-// Fetch Single Venue
+/**
+ * Fetches a single venue by ID.
+ * 
+ * @param {string} venueId - The ID of the venue to fetch.
+ * @returns {Promise<object>} - The venue data.
+ * @throws {Error} - Throws an error if the request fails.
+ */
 export const fetchVenue = async (venueId: string) => {
     try {
         const response = await fetch(`https://v2.api.noroff.dev/holidaze/venues/${venueId}`);

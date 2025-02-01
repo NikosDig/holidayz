@@ -4,10 +4,37 @@ import { createVenue, updateVenue, deleteVenue } from '../../hooks/crudOperation
 import { API_KEY } from '../../hooks/url';
 import { Link } from 'react-router-dom';
 
+/**
+ * ManagerCrudVenue component allows a venue manager to create, edit, and delete their venues.
+ * It fetches and displays a list of venues owned by the logged-in user (venue manager), and provides 
+ * functionalities to add new venues, update existing ones, and delete them.
+ * 
+ * @component
+ * @returns {JSX.Element} The JSX code representing the venue management interface.
+ */
 const ManagerCrudVenue: React.FC = () => {
+    /**
+     * @type {Array<any>} venues - A list of venue objects fetched from the API.
+     * @default []
+     */
     const [venues, setVenues] = useState<any[]>([]);
+
+    /**
+     * @type {boolean} loading - A flag to indicate if the data is currently being fetched.
+     * @default true
+     */
     const [loading, setLoading] = useState<boolean>(true);
+
+    /**
+     * @type {string | null} error - Error message if fetching venues fails.
+     * @default null
+     */
     const [error, setError] = useState<string | null>(null);
+
+    /**
+     * @type {Object} newVenue - The state object representing a new venue to be created.
+     * @default An object with default values for the new venue.
+     */
     const [newVenue, setNewVenue] = useState({
         name: '',
         description: '',
@@ -28,15 +55,44 @@ const ManagerCrudVenue: React.FC = () => {
             continent: '',
         },
     });
+
+    /**
+     * @type {any} editVenue - The state object representing a venue being edited.
+     * @default null
+     */
     const [editVenue, setEditVenue] = useState<any>(null);
+
+    /**
+     * @type {boolean} showEditModal - A flag to control the visibility of the edit modal.
+     * @default false
+     */
     const [showEditModal, setShowEditModal] = useState(false);
 
+    /**
+     * User data fetched from localStorage, including access token and user role.
+     */
     const userData = localStorage.getItem('userData');
     const parsedUserData = userData ? JSON.parse(userData) : null;
+
+    /**
+     * @type {boolean} isVenueManager - A flag indicating whether the user is a venue manager.
+     * @default false
+     */
     const isVenueManager = parsedUserData?.venueManager ?? false;
+
+    /**
+     * @type {string} userName - The name of the logged-in user.
+     */
     const userName = parsedUserData?.name;
+
+    /**
+     * @type {string} authToken - The authorization token for the logged-in user.
+     */
     const authToken = parsedUserData?.accessToken;
 
+    /**
+     * Fetches venues that belong to the logged-in user (venue manager) when the component mounts.
+     */
     useEffect(() => {
         if (!isVenueManager) return;
 
@@ -77,6 +133,11 @@ const ManagerCrudVenue: React.FC = () => {
         fetchVenues();
     }, [authToken, userName, isVenueManager]);
 
+    /**
+     * Handles the creation of a new venue.
+     * @async
+     * @function
+     */
     const handleCreateVenue = async () => {
         if (!authToken) return;
 
@@ -99,6 +160,11 @@ const ManagerCrudVenue: React.FC = () => {
         }
     };
 
+    /**
+     * Handles updating an existing venue.
+     * @async
+     * @function
+     */
     const handleUpdateVenue = async () => {
         if (!authToken || !editVenue) return;
     
@@ -106,14 +172,14 @@ const ManagerCrudVenue: React.FC = () => {
             
             const updatedVenue = await updateVenue(authToken, editVenue.id, editVenue);
     
-            
+            // Update the list of venues with the updated venue
             setVenues((prevVenues) =>
                 prevVenues.map((venue) =>
                     venue.id === updatedVenue.id ? { ...updatedVenue } : venue
                 )
             );
     
-            
+            // Close the edit modal and reset the edited venue state
             setShowEditModal(false);
             setEditVenue(null);
         } catch (error) {
@@ -122,6 +188,12 @@ const ManagerCrudVenue: React.FC = () => {
     };
     
 
+    /**
+     * Handles deleting a venue.
+     * @async
+     * @function
+     * @param {string} id - The ID of the venue to delete.
+     */
     const handleDeleteVenue = async (id: string) => {
         if (!authToken) return;
         try {
@@ -133,6 +205,10 @@ const ManagerCrudVenue: React.FC = () => {
         }
     };
 
+    /**
+     * Handles changes to the form inputs for creating or editing venues.
+     * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} e - The event triggered by input changes.
+     */
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
 
@@ -158,6 +234,9 @@ const ManagerCrudVenue: React.FC = () => {
         }
     };
 
+    /**
+     * Conditional rendering based on the user role, loading state, and error state.
+     */
     if (!isVenueManager) {
         return <p></p>;
     }
