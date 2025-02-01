@@ -11,7 +11,7 @@ function ContactMain() {
                 <div className="bgwhite">
                 <svg xmlns="http://www.w3.org/2000/svg" width="27" height="36" viewBox="0 0 27 36">
                 <g id="geo-alt" transform="translate(-4.5)">
-                <path id="Path_2" data-name="Path 2" d="M18,36S31.5,23.207,31.5,13.5a13.5,13.5,0,0,0-27,0C4.5,23.207,18,36,18,36Zm0-15.75a6.75,6.75,0,1,0-6.75-6.75A6.75,6.75,0,0,0,18,20.25Z" fill-rule="evenodd"/>
+                <path id="Path_2" data-name="Path 2" d="M18,36S31.5,23.207,31.5,13.5a13.5,13.5,0,0,0-27,0C4.5,23.207,18,36,18,36Zm0-15.75a6.75,6.75,0,1,0-6.75-6.75A6.75,6.75,0,0,0,18,20.25Z" fillRule="evenodd"/>
                 </g>
                 </svg>
                 <h5>visit us</h5>
