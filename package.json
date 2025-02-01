@@ -16,6 +16,7 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
+    "docs": "jsdoc -c ./conf.json -r",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,6 +44,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "jsdoc": "^4.0.4"
   }
 }
