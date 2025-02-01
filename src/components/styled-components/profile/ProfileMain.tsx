@@ -153,11 +153,11 @@ function ProfileMain() {
   }
 
   if (isError) {
-    return <div>Error fetching profile data.</div>;
+    return <div>Log in to see your profile</div>;
   }
 
   if (!user) {
-    return <div>Log in to see your profile</div>;
+    return <div>Error fetching profile data.</div>;
   }
 
   return (
