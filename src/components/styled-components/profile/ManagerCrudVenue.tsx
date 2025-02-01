@@ -192,9 +192,6 @@ const ManagerCrudVenue: React.FC = () => {
         }
     };
     
-    
-    
-    
 
     /**
      * Handles deleting a venue.
