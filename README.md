@@ -1,5 +1,7 @@
 # Holidaze Front-End Application
 
+![image](/src/XdDesignScreenShots/holidayz.png)
+
 ## Overview
 
 Holidaze is a modern accommodation booking platform where users can book holidays at various venues. This project focuses on developing the front-end interface for the Holidaze website, including both the customer-facing and admin-facing features. It integrates with an existing API to handle all data-related operations.
