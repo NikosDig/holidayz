@@ -1,4 +1,4 @@
-# Holidaze Front-End Application
+# Holidaze Front-End Application 
 
 ![image](/src/XdDesignScreenShots/holidayz.png)
 
